@@ -34,11 +34,15 @@
       </ion-col>
     </ion-row>
     <!-- fin elemento guia -->
-    <ion-row>
+    <ion-row *ngIf="!moreresults">
       <ion-col size="12" class="website-combexim">
-        <p>mas resultados</p>
+        <p>No hay mas resultados</p>
       </ion-col>
     </ion-row>
 
   </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingText="Cargando..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

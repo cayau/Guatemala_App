@@ -13,6 +13,7 @@ export class Tab1Page implements OnInit {
   per_page = 10;
   current_page = 1;
   public promociones = [];
+  public moreresults = false;
 
   constructor(
     public navCtrl: NavController,
@@ -28,6 +29,7 @@ export class Tab1Page implements OnInit {
         this.dismiss_spinner();
         var res = JSON.parse(resBus['_body']);
         this.promociones = res['response']['data']['promotions'];
+        this.moreresults = res['response']['data']['has_more_pages'];
       },
       err => {
           this.dismiss_spinner();
@@ -43,6 +45,33 @@ export class Tab1Page implements OnInit {
       this.ds.setStoragePromocionActual(guia);
       this.navCtrl.navigateForward('/promo-detail');
     }, 200);
+  }
+
+  doInfinite(infiniteScroll) {
+    if(this.moreresults){      
+      this.ds.getStorageUser().then( (userData) => {
+        this.current_page++;
+        this.ds.promotionsList(this.per_page, this.current_page, userData).subscribe((resBus) => {
+            infiniteScroll.target.complete();
+            var d = JSON.parse(resBus['_body']);            
+            this.moreresults = d['response']['data']['has_more_pages'];
+            d = d['response']['data']['promotions'];  console.log("More data ",d);
+            if(d.length > 0){
+                for(var i=0 ; i < d.length ; i++){
+                    this.promociones.push(d[i]);
+                }                
+            }else{
+              this.presentAlert('Mensaje', 'Error al consultar promociones.', 'Aceptar');
+            }
+        },
+        err => {
+            infiniteScroll.target.complete();
+            this.presentAlert('Mensaje', 'Error al consultar promociones.', 'Aceptar');
+        });
+      });
+    }else{
+        infiniteScroll.target.complete();
+    }
   }
 
   async presentAlert(tit, sms, btn) {
