@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Promociones
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,32 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <!-- inicio elemento guia -->
+    <ion-row *ngFor="let promocion of promociones; let index=index; let odd=odd; let even=even;" class="" (click)="verDetalle(promocion)"  [ngClass]="{ 'white-manifest': odd, 'gray-manifest': even }"> <!--gray-manifest-->
+      <ion-col size="2" class="contentbox-manifest">
+        <div class="contentbox-img">
+          {{promocion.id}}
+        </div>
+      </ion-col>
+      <ion-col size="9">
+        <div class="contentbox-text__manifest">
+          <p><span>Titulo:</span>{{promocion.title}}</p>
+          <p><span>Precio:</span>{{promocion.price}}</p>
+          <p><span>Direccion:</span>{{promocion.address}}</p>
+          <p><span>Latitud, Longitud:</span>{{promocion.latitude}}, {{promocion.longitude}}</p>
+        </div>
+      </ion-col>
+      <ion-col size="1" class="contentbox-button">
+        <ion-icon color="primary" name="ios-arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <!-- fin elemento guia -->
+    <ion-row>
+      <ion-col size="12" class="website-combexim">
+        <p>mas resultados</p>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

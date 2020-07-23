@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalle de Promocion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="banner-dark">
+    <p><span>Titulo:</span>{{promo.title}}</p>
+  </section>
+  <ion-grid>
+    <ion-row class="gray-manifest">
+      <ion-col size="2" class="contentbox-manifest">
+        <div class="contentbox-img">
+          ID:
+        </div>
+      </ion-col>
+      <ion-col size="2" class="contentbox-manifest">
+        <div class="contentbox-img">
+          {{promo.id}}
+        </div>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="contenttext-guiedetail">
+          <p><span>Direccion:</span>{{promo.address}}</p>
+          <p><span>Latitud:</span>{{promo.longitude}}</p>
+          <p><span>Longitud:</span>{{promo.latitude}}</p>
+          <br>
+          <p><span>Precio:</span>Q. {{promo.price}}</p>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

@@ -54,7 +54,7 @@
       font-size: 13px;
       span {
         font-family: 'Quicksand-Medium';
-        margin-right: 5px;
+        margin-right: 3px;
       }
     }
   }
@@ -90,6 +90,12 @@
     }
   
     .contentbox-text__manifest {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
       p {
         font-family: 'Quicksand-Regular';
         font-size: 12px;
@@ -107,63 +113,9 @@
       align-items: center;
       .button-see {
         font-family: 'Quicksand-Regular';
-        background: #f17c00;
+        background: #444444;
         color: #fff;
-        font-size: 10px;
-        width: 100%;
-        padding: 7px 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-  
-  .white-manifest {
-    background: #fff;
-    padding: 5px 0;
-    .contentbox-manifest {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .contentbox-img {
-        background: #f3f3f3;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        overflow: hidden;
-        .carga-img {
-          width: 100%;
-          height: auto;
-        }
-      }
-    }
-  
-    .contentbox-text__manifest {
-      p {
-        font-family: 'Quicksand-Regular';
         font-size: 12px;
-        margin: 0 0 2px 0;
-        & span{
-          font-family: 'Quicksand-Medium';
-          margin-right: 2px;
-        }
-      }
-    }
-  
-    .contentbox-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .button-see {
-        font-family: 'Quicksand-Regular';
-        background: #f17c00;
-        color: #fff;
-        font-size: 11px;
         width: 100%;
         padding: 7px 2px;
         display: flex;
@@ -172,17 +124,17 @@
       }
     }
   }
-  
-  .website-combexim {
+  .contenttext-guiedetail {
+    padding: 10px 15px;
     p {
-        font-family: 'Quicksand-Regular';
-        text-align: center;
-        font-size: 10px;
-        margin: 0;
-        a {
-          text-decoration: none;
-          color: #f17c00;
-        }
+      font-family: 'Quicksand-Regular';
+      color: #000;
+      font-size: 12px;
+      margin: 0;
+      span {
+        font-family: 'Quicksand-Medium';
+        padding-right: 5px;
+      }
     }
   }
   
@@ -196,23 +148,4 @@
     outline: 0;
     padding: 0px 10px;
   }
-  .white-manifest:hover,.gray-manifest:hover{
-    background-position: left bottom;
-    color: #ffffff;
-    .ion-color-primary{
-      --ion-color-base: #ffffff!important;
-      color:#ffffff;
-    }
-  }
-   .gray-manifest {
-    background: linear-gradient(to right, rgb(129, 129, 129) 50%, #f3f3f3 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: all .2s ease-out;
-  }
-  .white-manifest{
-    background: linear-gradient(to right, rgb(129, 129, 129) 50%, #ffffff 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: all .2s ease-out;
-  }
+  

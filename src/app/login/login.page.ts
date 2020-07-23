@@ -3,48 +3,46 @@ import { AlertController, LoadingController, NavController } from '@ionic/angula
 import { AppService } from '../app.service';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class Tab1Page implements OnInit {
-
+export class LoginPage implements OnInit {
+  
+  password_type: string = 'password';
   isLoading = false;
-  per_page = 10;
-  current_page = 1;
-  public promociones = [];
 
   constructor(
+    public ds: AppService,
+    public loadingController: LoadingController,    
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-    public loadingController: LoadingController,
-    public ds: AppService,
-  ) {}
+    //public events: Events,
+  ) { }
 
-
-  ngOnInit() {
-    this.ds.getStorageUser().then( (userData) => {
-      this.ds.promotionsList(this.per_page, this.current_page, userData).subscribe((resBus) => {
-        this.dismiss_spinner();
-        var res = JSON.parse(resBus['_body']);
-        this.promociones = res['response']['data']['promotions'];
+  async login(form) {    
+    if(form.valid){
+      this.present_spinner(); 
+      this.ds.loginUser(form.controls.correo.value, form.controls.password.value).subscribe((resLogin) => {
+          this.dismiss_spinner();          
+          let res = JSON.parse(resLogin['_body']);
+          this.ds.setStorageUser(res['response']['data']);
+          this.navCtrl.navigateRoot('/tabs');
+          //this.events.publish('user:login', res['usuario'], Date.now());
       },
       err => {
           this.dismiss_spinner();
-          this.promociones = [];
-          this.presentAlert('Mensaje', 'Error al consultar promociones.', 'Aceptar');
-          console.log("Error ",err);
+          this.presentAlert('Mensaje', 'Tus datos de ingreso son inválidos.', 'Aceptar');
       });
-    });
+    } else {
+      this.presentAlert('Error', 'Debes llenar todos los campos.', 'Aceptar');
+    }
   }
 
-  verDetalle(guia){    
-    setTimeout( () => {
-      this.ds.setStoragePromocionActual(guia);
-      this.navCtrl.navigateForward('/promo-detail');
-    }, 200);
+  togglePasswordMode() {
+    this.password_type = this.password_type === 'text' ? 'password' : 'text';
   }
-
+  
   async presentAlert(tit, sms, btn) {
     const alert = await this.alertCtrl.create({
         header: tit,
@@ -70,6 +68,9 @@ export class Tab1Page implements OnInit {
         }
       });
     });
+  }
+
+  ngOnInit() {
   }
 
 }
