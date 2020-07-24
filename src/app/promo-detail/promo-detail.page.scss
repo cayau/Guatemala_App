@@ -1,46 +1,4 @@
-.custom-toolbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    .mainmenu-button {
-      color: #004e98;
-    }
-    .custom-dots {
-      color: #f17c00;
-      font-size: 30px;
-      padding: 0px 8px;
-    }
-    .back-img {
-      outline: 0;
-    }
-    .header-logo {
-      width: 100px;
-      height: auto;
-    }
-  }
-  .banner-blue {
-    background: #004e98;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 40px;
-    img {
-      width: 20px;
-      height: 20px;
-      margin: 0px 10px;
-    }
-    h5 {
-      font-family: 'Quicksand-Medium';
-      color: #ffffff;
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 16px;
-    }
-  }
+
   .banner-dark {
     background: #444444;
     display: flex;
@@ -51,22 +9,17 @@
     p {
       font-family: 'Quicksand-Regular';
       color: #ffffff;
-      font-size: 13px;
+      font-size: 16px;
       span {
         font-family: 'Quicksand-Medium';
         margin-right: 3px;
       }
     }
   }
-  
-  .lineorange-filters {
-    width: 100%;
-    height: 3px;
-    background: #f17c00;
-  }
+
   
   .gray-manifest {
-    background: #f3f3f3;
+    background: #ababab;
     padding: 5px 0;
     .contentbox-manifest {
       display: flex;
@@ -74,6 +27,7 @@
       align-items: center;
       .contentbox-img {
         background: #ffffff;
+        color: #000;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -86,54 +40,6 @@
           width: 100%;
           height: auto;
         }
-      }
-    }
-  
-    .contentbox-text__manifest {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      p {
-        font-family: 'Quicksand-Regular';
-        font-size: 12px;
-        margin: 0 0 2px 0;
-        & span{
-          font-family: 'Quicksand-Medium';
-          margin-right: 2px;
-        }
-      }
-    }
-  
-    .contentbox-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .button-see {
-        font-family: 'Quicksand-Regular';
-        background: #444444;
-        color: #fff;
-        font-size: 12px;
-        width: 100%;
-        padding: 7px 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-  .contenttext-guiedetail {
-    padding: 10px 15px;
-    p {
-      font-family: 'Quicksand-Regular';
-      color: #000;
-      font-size: 12px;
-      margin: 0;
-      span {
-        font-family: 'Quicksand-Medium';
-        padding-right: 5px;
       }
     }
   }

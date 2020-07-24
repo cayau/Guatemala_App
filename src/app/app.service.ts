@@ -54,7 +54,7 @@ export class AppService {
       return registerResponse;
   }
 
-  async promotionById(promotion_id, userData) {   
+  promotionById(promotion_id, userData) {   
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('Accept', 'application/json');
